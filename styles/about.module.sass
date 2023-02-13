@@ -1,0 +1,52 @@
+
+@import './variables'
+.root
+    display: grid
+    grid-template: 1fr / 1.1fr .9fr
+    margin-bottom: 7rem
+    p
+        font-size: 16px
+
+.col1 *:first-child
+    margin-top: 2rem
+.col2 > *
+    margin-bottom: 2rem
+.col2 > div:first-child
+    margin-top: 8rem
+.custUl li
+    list-style-type: none
+    position: relative
+    padding-left: 40px
+    line-height: 2rem
+
+.custUl li:before
+    content: url('../public/assets/images/checkMark.png')
+    position: absolute
+    top: 0px
+    left: 0px
+.imageWrap
+    position: relative
+
+.imageWrap:before
+    position: absolute
+    content: url("../public/assets/images/ManIsWriting.jpg")
+    bottom: -95px
+    right: 50px
+    max-width: 390px
+    min-height: 440px
+    width: 100%
+    hight: 100%
+
+.kpis
+    display: grid
+
+    grid-template: 1fr / repeat(3, 1fr)
+    align-items: start
+    justify-items: center
+
+p.num
+    font-size: 35px!important
+    color: $white
+
+p.title
+    font-size: 11px

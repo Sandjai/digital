@@ -1,0 +1,31 @@
+@import './variables'
+.root
+    margin-left: auto
+    margin-right: auto
+
+    display: grid
+    grid-template-columns: 1fr minmax(150px, 2fr)
+    grid-template-rows: 250px
+    color: $grey
+    font-size: 1rem
+    align-items: center
+
+.textWrapper
+    margin: 2rem 0px
+    position: relative
+    padding-left: 40px
+    max-width: 20rem
+
+.textWrapper::before
+    content: ""
+    position: absolute
+    width: 3px
+    height: 100%
+    top: 0
+    left: 20px
+    background-color: $orange
+
+.icons
+    display: flex
+    align-items: center
+    justify-content: space-between

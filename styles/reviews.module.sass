@@ -1,0 +1,50 @@
+@import './variables'
+
+.root
+    display: grid
+    grid-template: 1fr / .7fr 1.3fr
+    column-gap: 2rem
+
+    p
+        font-size: 24px
+        color: $white
+        font-style: italic
+
+.col1
+    position: relative
+    &:before
+        content: url('../public/assets/images/Arc1.png')
+        position: absolute
+        bottom: -30px
+        right: 20px
+    &:after
+        content: url('../public/assets/images/Arc2.png')
+        position: absolute
+        bottom: -7px
+        right: 55px
+.quote
+    position: relative
+    margin-top: 4rem
+    &::before
+        content: url('../public/assets/images/quote.png')
+        position: absolute
+        top: -4rem
+        left: -2rem
+.arrows
+    display: flex
+
+.arrow
+    position: relative
+    background-color: $darkgrey
+    width: 45px
+    height: 45px
+    border-radius: 50%
+    text-align: center
+    line-height: 45px
+    margin: 20px 4px
+
+.arrow.active
+    background-color: $grey
+    &:hover
+        background-color: $orange
+        cursor: pointer

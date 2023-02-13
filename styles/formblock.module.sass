@@ -1,0 +1,36 @@
+@import './variables'
+.root
+    display: grid
+    grid-template: 1fr/ 1.2fr .8fr
+    row-gap: 2rem
+    h1
+        font-size: 60px
+
+.error
+    font-style: italic
+    color: $orange
+    padding-top: .5rem
+    margin-left: 10px
+    letter-spacing: 1.5
+.formLabel, .formInput
+    max-width: 550px
+    width: 100%
+    color: $white
+.formLabel, .error
+    font-family: PlusJakartaSans-Medium, sans-serif
+    font-size: 14px
+.formInput
+    padding: 1.2rem .5rem
+    background-color: $mirkgrey
+    border: 1px solid $grey
+    margin-top: 1rem
+    font-family: PlusJakartaSans-Bold, sans-serif
+    font-size: 16px
+
+    &::placeholder
+        color: $white
+        font-family: PlusJakartaSans-Bold, sans-serif
+        font-size: 16px
+    &:focus, &:focus-visible
+        border: 1px solid $orange!important
+        outline: none

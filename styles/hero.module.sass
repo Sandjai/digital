@@ -1,0 +1,97 @@
+
+@import 'variables'
+
+.allocated
+    position: absolute
+    width: 50%
+    left: 22%
+    top: 45%
+    p
+        color: $grey
+        width: 40%
+
+.textWrapper
+    position: relative
+
+.textWrapper::before
+    content: ""
+    position: absolute
+    width: 3px
+    height: 100%
+    top: 0
+    left: -20px
+    background-color: $orange
+
+.ctaWrapper
+    position: absolute
+    width: 33%
+    right: 12%
+    bottom: 25vh
+
+.ctaWrapper2
+    position: absolute
+    width: 8rem
+    height: 3rem
+    line-height: 3rem
+    border-radius: 3rem
+    background: $orange
+    bottom: 0px
+    right: 50%
+    transform: translateX(50%) rotate(90deg)
+    p
+        text-align: center
+        margin-bottom: 5rem
+
+.heroTxt
+    position: absolute
+    width: 70%
+    margin-left: 12%
+    top: 15vh
+
+    h1
+        color: $white
+        font-size: 90px
+        line-height: 130%
+        text-align: center
+
+    h2
+        text-align: right
+
+.imageBlock
+    position: absolute
+    left: 0%
+    bottom: 150px
+
+.imageWrapper
+    position: relative
+
+.imageBlock::before
+    content: ""
+    position: absolute
+    width: 307px
+    height: 307px
+    border-radius: 50%
+    background: $orange
+    left: -85px
+    top: -35px
+
+.strokeTxt
+    -webkit-text-fill-color: transparent
+    -webkit-text-stroke: 3px $white
+    font-size: 130px
+
+.cta1, .cta2
+    position: relative
+    p
+        color: $white
+        letter-spacing: .2em
+
+.ctaWrapper::before
+    content: ""
+    position: absolute
+    width: 60px
+    height: 60px
+    border-radius: 50%
+    background: $orange
+    left: -7px
+    top: -18px
