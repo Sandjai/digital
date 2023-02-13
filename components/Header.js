@@ -17,10 +17,10 @@ const Header = ({ keywords, title }) => {
         <A className={styles.link} href="/">
           HOME
         </A>
-        <A className={styles.link} href="/portfolio">
+        <A className={styles.link} href="#portfolio">
           PORTFOLIO
         </A>
-        <A className={styles.link} href="/about">
+        <A className={styles.link} href="#about">
           ABOUT
         </A>
         <A className={styles.link} href="#contact">
