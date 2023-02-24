@@ -1,4 +1,27 @@
 @import './variables'
+// .root
+//     position: relative
+//     button
+//         border: none
+//         outline: none
+//         background-color: transparent
+//         cursor: pointer
+//         h5
+//             font-size: 16px
+// .cta
+//     padding-left: 20px
+//     margin-top: 3rem
+
+// .cta::before
+//     content: ""
+//     position: absolute
+//     width: 60px
+//     height: 60px
+//     border-radius: 50%
+//     background: $darkgrey
+//     left: -7px
+//     top: -18px
+//     z-index: -1
 .root
     position: relative
     button
@@ -8,17 +31,25 @@
         cursor: pointer
         h5
             font-size: 16px
+    &:hover
+        cursor: pointer
+        .cta
+            width: 50%
+            border-radius: 60px
+
 .cta
     padding-left: 20px
-    margin-top: 3rem
-
-.cta::before
-    content: ""
-    position: absolute
     width: 60px
     height: 60px
     border-radius: 50%
     background: $darkgrey
-    left: -7px
-    top: -18px
-    z-index: -1
+    transition: width .5s, border-radius .5s
+    &_grey
+        background: $darkgrey
+    &_orange
+        background: $orange
+.cta__text
+    position: absolute
+    left: 20px
+    top: 30px
+    transform: translateY(-50%)

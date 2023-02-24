@@ -1,3 +1,5 @@
+@import './../styles/variables.sass'
+
 .root
     position: fixed
     top: 0
@@ -10,3 +12,26 @@
 
 .link
     margin: 10px
+
+@media screen and (max-width: 767px)
+    .menuItems
+        display: none
+        &_open
+            display: flex
+            flex-direction: column
+            position: fixed
+            top: 70px
+            right: 0px
+            width: 100%
+            text-align: center
+            background-color: rgba(17,17,17,.7)
+    .blur
+        display: none
+        &_open
+            display: block
+            position: fixed
+            top: 0px
+            left: 0px
+            width: 100vw
+            height: 100vh
+            backdrop-filter: blur(2px)

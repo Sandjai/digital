@@ -5,12 +5,13 @@ import ManIsWriting from "../public/assets/images/ManIsWriting.jpg";
 import PeopleSmiling from "../public/assets/images/PeopleSmiling.jpg";
 import Image from "next/image";
 
-const About = () => {
+const About = ({ id }) => {
   return (
-    <div className={styles.root}>
+    <div id={id} className={styles.root}>
       <div className={styles.col1}>
         <div className={styles.imageWrap}>
           <Image
+            className={styles.image}
             src={PeopleSmiling}
             alt="People are smiling"
             width="570px"
@@ -37,7 +38,9 @@ const About = () => {
           <li>But I must explain to you how all this mistaken idea</li>
           <li>At vero eos et accusamus et iusto odio dignissimos</li>
         </ul>
+      </div>
 
+      <div className={styles.col3}>
         <div className={styles.kpis}>
           <div className={styles.kpi}>
             <p className={styles.num}>120%</p>

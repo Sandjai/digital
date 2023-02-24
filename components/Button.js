@@ -1,24 +1,35 @@
 import React from "react";
 import styles from "../styles/button.module.sass";
-
-const Button = ({ children, type }) => {
+import classNames from "classnames";
+const Button = ({ children, type, className }) => {
   return (
     <>
       {type === "primary" && (
-        <div className={styles.root}>
-          <div className={styles.cta}>
+        <div className={classNames(className, styles.root)}>
+          <div className={classNames(styles.cta, styles.cta_grey)}></div>
+          <div className={styles.cta__text}>
+            <h5>{children}</h5>
+          </div>
+        </div>
+      )}
+
+      {type === "secondary" && (
+        <div className={classNames(className, styles.root)}>
+          <div className={classNames(styles.cta, styles.cta_orange)}></div>
+          <div className={styles.cta__text}>
             <h5>{children}</h5>
           </div>
         </div>
       )}
 
       {type === "submit" && (
-        <div className={styles.root}>
-          <div className={styles.cta}>
-            <button type="submit">
+        <div className={classNames(className, styles.root)}>
+          <div className={styles.cta}></div>
+          <button type="submit">
+            <div className={styles.cta__text}>
               <h5>{children}</h5>
-            </button>
-          </div>
+            </div>
+          </button>
         </div>
       )}
     </>

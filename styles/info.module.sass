@@ -2,8 +2,6 @@
 
 .root
     display: grid
-    grid-template-columns: 1fr 1fr
-    grid-template-rows: 180px
 
     h5
         font-size: 16px
@@ -29,3 +27,17 @@
 .kpi_title
     p
         font-size: 11px
+.button
+    margin-top: 3rem
+@media screen and (min-width: 961px)
+    .root
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 180px
+@media screen and (min-width: 768px) and (max-width: 960px)
+    .root
+        row-gap: 1.3rem
+        grid-template: auto auto / 1fr
+
+@media screen and (max-width: 767px)
+    .root
+        grid-template: auto auto / 1fr

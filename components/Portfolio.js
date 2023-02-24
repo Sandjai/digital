@@ -2,9 +2,9 @@ import React from "react";
 import styles from "../styles/portfolio.module.sass";
 import Button from "./Button";
 
-const Portfolio = () => {
+const Portfolio = ({ id }) => {
   return (
-    <div className={styles.root}>
+    <div id={id} className={styles.root}>
       <div className={styles.col1}>
         <p className="sectionName">PORTFOLIO</p>
         <h2>We Work to Craft Solid Products and Services For You</h2>
@@ -14,7 +14,11 @@ const Portfolio = () => {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-        <Button type="primary">VIEW ALL PORTFOLIO</Button>
+        <div className={styles.btnWrapper}>
+          <Button className={styles.button} type="primary">
+            VIEW ALL PORTFOLIO
+          </Button>
+        </div>
       </div>
       <div className={styles.col2}>
         <div>

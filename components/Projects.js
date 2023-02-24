@@ -2,9 +2,9 @@ import React from "react";
 import styles from "../styles/projects.module.sass";
 import Button from "./Button";
 
-const Projects = () => {
+const Projects = ({ id }) => {
   return (
-    <div className={styles.root}>
+    <div id={id} className={styles.root}>
       <div className={styles.col1}>
         <div>
           <p className={styles.num}>100+</p>
@@ -35,7 +35,9 @@ const Projects = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam
         </p>
-        <Button type="primary">VIEW ALL VALUE</Button>
+        <Button className={styles.button} type="primary">
+          VIEW ALL VALUE
+        </Button>
       </div>
     </div>
   );

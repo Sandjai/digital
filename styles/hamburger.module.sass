@@ -1,0 +1,30 @@
+@import './../styles/variables'
+
+.hamburger
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    justify-content: space-between
+    height: 2.5rem
+    width: 2.5rem
+    cursor: pointer
+
+    &__top, &__middle, &__bottom
+        height: 5px
+        background: $white
+        border-radius: 5px
+        margin: 3px 0px
+        transform-origin: left
+        transition: transform 0.5s
+
+    &:hover &__top, &__top_open
+        transform: rotate(45deg)
+
+    &:hover &__middle, &__middle_open
+        opacity: 0
+
+    &:hover &__bottom, &__bottom_open
+        transform: rotate(-45deg)
+@media screen and (min-width: 768px)
+    .hamburger
+        display: none

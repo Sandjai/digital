@@ -14,7 +14,9 @@ const Info = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore .
         </p>
-        <Button type="primary">VIEW ALL FEATURES</Button>
+        <Button className={styles.button} type="primary">
+          VIEW ALL FEATURES
+        </Button>
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ const optionsQuest4 = [
 
 const animatedComponents = makeAnimated();
 
-const FormBlock = () => {
+const FormBlock = ({ id }) => {
   const {
     register,
     handleSubmit,
@@ -54,7 +54,7 @@ const FormBlock = () => {
   console.log(watch("email"));
 
   return (
-    <div id="contact" className={styles.root}>
+    <div id={id} className={styles.root}>
       <div className={styles.cell1}>
         <h1>Let’s Make Something Great Together!</h1>
       </div>
@@ -158,7 +158,7 @@ const FormBlock = () => {
 
           <textarea
             type="text"
-            maxlength="3000"
+            maxLength="3000"
             defaultValue=""
             {...register("custEnq")}
             id="custEnqID"
@@ -168,12 +168,14 @@ const FormBlock = () => {
           ></textarea>
 
           <div>
-            <Button type="submit">SUBMIT</Button>
+            <Button className={styles.button} type="submit">
+              SUBMIT
+            </Button>
           </div>
         </form>
       </div>
 
-      <div className="cell4">
+      <div className={styles.cell4}>
         <p className="sectionName">CONTACT US</p>
         <h2>We will be happy to answer your questions</h2>
         <p>

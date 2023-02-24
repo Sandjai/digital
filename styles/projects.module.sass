@@ -2,7 +2,6 @@
 
 .root
     display: grid
-    grid-template: 1fr / 1fr 1fr
 
     h3
         font-size: 30px
@@ -34,3 +33,14 @@ p.sectionName
     left: -7px
     top: -18px
     z-index: -1
+.button
+    margin-top: 3rem
+@media screen and (min-width: 960px)
+    .root
+        grid-template: 1fr / 1fr 1fr
+@media screen and (min-width: 768px) and (max-width: 960px)
+    .root
+        grid-template: auto auto / 1fr
+@media screen and (max-width: 767px)
+    .root
+        grid-template: auto auto / 1fr

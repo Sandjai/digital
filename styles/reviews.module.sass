@@ -16,12 +16,12 @@
         content: url('../public/assets/images/Arc1.png')
         position: absolute
         bottom: -30px
-        right: 20px
+
     &:after
         content: url('../public/assets/images/Arc2.png')
         position: absolute
         bottom: -7px
-        right: 55px
+
 .quote
     position: relative
     margin-top: 4rem
@@ -48,3 +48,28 @@
     &:hover
         background-color: $orange
         cursor: pointer
+@media screen and (min-width: 960px)
+    .root
+        grid-template: 1fr / .7fr 1.3fr
+    .col1
+        &:before
+            right: 20px
+        &:after
+            right: 55px
+@media screen and (min-width: 768px) and (max-width: 960px)
+    .root
+        grid-template: auto auto / 1fr
+    .col1
+        &:before
+            left: 370px
+        &:after
+            left: 335px
+
+@media screen and (max-width: 767px)
+    .root
+        grid-template: auto auto / 1fr
+    .col1
+        &:before
+            left: 370px
+        &:after
+            left: 335px
