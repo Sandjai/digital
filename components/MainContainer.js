@@ -2,10 +2,14 @@ import Header from "./Header";
 import styles from "../styles/mainContainer.module.sass";
 import Footer from "./Footer";
 
-const MainContainer = ({ children, keywords, title }) => {
+const MainContainer = ({ children, keywords, title, isSsrMobile }) => {
   return (
     <div className={styles.root}>
-      <Header keywords={keywords} title={title}></Header>
+      <Header
+        isSsrMobile={isSsrMobile}
+        keywords={keywords}
+        title={title}
+      ></Header>
       {children}
       <footer className={styles.footer}>
         <Footer></Footer>

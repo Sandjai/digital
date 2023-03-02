@@ -1,12 +1,21 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import heroBanner from "../public/assets/images/Hero.jpg";
 import conversationImg from "../public/assets/images/Conversation.jpg";
 import styles from "../styles/hero.module.sass";
 import Button from "./Button";
+import { Transition } from "react-transition-group";
+import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { setActiveItem } from "../store/header/actions";
 
-const Hero = ({ onClick }) => {
+const Hero = ({ onClick, inView, entry }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    entry?.isIntersecting && dispatch(setActiveItem("HOME"));
+  }, [inView]);
+
   return (
     <div className={styles.root}>
       <Image
@@ -34,20 +43,24 @@ const Hero = ({ onClick }) => {
           </p>
         </div>
       </div>
-      <div className={styles.imageBlock}>
-        <div className={styles.imageWrapper}>
-          <Image
-            width="470px"
-            height="230px"
-            src={conversationImg}
-            alt="People are talking in the office"
-            priority={true}
-          ></Image>
-        </div>
-      </div>
+
+      <Transition in={inView} timeout={2000} mountOnEnter unmountOnExit>
+        {(state) => (
+          <div className={classNames(styles[state], styles.imageBlock)}>
+            <Image
+              width="470px"
+              height="230px"
+              src={conversationImg}
+              alt="People are talking in the office"
+              priority={true}
+              placeholder="blur"
+            ></Image>
+          </div>
+        )}
+      </Transition>
 
       <div className={styles.ctaWrapper}>
-        <Button className={styles.button} type="secondary">
+        <Button inView={inView} className={styles.button} type="secondary">
           GET IN TOUCH
         </Button>
       </div>

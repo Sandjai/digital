@@ -10,7 +10,7 @@
         color: $white
         font-style: italic
 
-.col1
+.imageWrapper
     position: relative
     &:before
         content: url('../public/assets/images/Arc1.png')
@@ -51,7 +51,7 @@
 @media screen and (min-width: 960px)
     .root
         grid-template: 1fr / .7fr 1.3fr
-    .col1
+    .imageWrapper
         &:before
             right: 20px
         &:after
@@ -59,7 +59,7 @@
 @media screen and (min-width: 768px) and (max-width: 960px)
     .root
         grid-template: auto auto / 1fr
-    .col1
+    .imageWrapper
         &:before
             left: 370px
         &:after
@@ -68,7 +68,7 @@
 @media screen and (max-width: 767px)
     .root
         grid-template: auto auto / 1fr
-    .col1
+    .imageWrapper
         &:before
             left: 370px
         &:after

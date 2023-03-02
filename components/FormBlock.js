@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/formblock.module.sass";
 import Button from "./Button";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import { Controller, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { setActiveItem } from "../store/header/actions";
+import { Transition } from "react-transition-group";
+import useIfViewedOnce from "../utils/useIfViewedOnce";
+import classNames from "classnames";
 
 const optionsQuest1 = [
   { value: "Digital Marketing", label: "Digital Marketing Promotion" },
@@ -34,7 +39,16 @@ const optionsQuest4 = [
 
 const animatedComponents = makeAnimated();
 
-const FormBlock = ({ id }) => {
+const FormBlock = ({ id, inView, entry }) => {
+  const [visible, setVisible] = useState(false);
+
+  useIfViewedOnce({ inView, setVisible });
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    entry?.isIntersecting && dispatch(setActiveItem("CONTACT"));
+  }, [inView]);
+
   const {
     register,
     handleSubmit,
@@ -54,81 +68,89 @@ const FormBlock = ({ id }) => {
   console.log(watch("email"));
 
   return (
-    <div id={id} className={styles.root}>
-      <div className={styles.cell1}>
-        <h1>Let’s Make Something Great Together!</h1>
-      </div>
-      <div className={styles.cell2}></div>
+    <>
+      <Transition in={visible} timeout={500}>
+        {(state) => (
+          <div id={id} className={classNames(state, styles.root)}>
+            <div className={styles.cell1}>
+              <h1>Let’s Make Something Great Together!</h1>
+            </div>
+            <div className={styles.cell2}></div>
 
-      <div className={styles.cell3}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            defaultValue=""
-            {...register("email", {
-              required: "Enter your email address",
-              pattern: {
-                message: "Email format is not correct",
-                value: /^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z0-9_-]+)$/,
-              },
-            })}
-            id="emailID"
-            name="email"
-            className={styles.formInput}
-            placeholder="Email Address"
-          />
-
-          {errors?.email && (
-            <div className={styles.error}>{errors.email.message}</div>
-          )}
-
-          <input
-            type="text"
-            defaultValue=""
-            {...register("firstName", { required: "Enter your first name" })}
-            id="firstNameID"
-            name="firstName"
-            className={styles.formInput}
-            placeholder="First name"
-          ></input>
-          {errors?.firstName && (
-            <div className={styles.error}>{errors.firstName.message}</div>
-          )}
-
-          <Controller
-            name="question1"
-            control={control}
-            defaultValue=""
-            //  rules={{ required: "tdcdcrue" }}
-            rules={{
-              required: "This field is required",
-            }}
-            render={({
-              field: { onChange, onBlur, value, name, ref },
-              fieldState: { invalid, isTouched, isDirty, error },
-              formState,
-            }) => (
-              <>
-                <Select
-                  id="question1"
-                  instanceId="question1"
-                  options={optionsQuest1}
-                  required
-                  value={value}
-                  className="customSelect"
-                  classNamePrefix="customSelect"
-                  isMulti
-                  placeholder="How can we help your business? (multi select)"
-                  components={animatedComponents}
-                  isSearchable={false}
-                  onChange={(newValue) => onChange(newValue)}
+            <div className={styles.cell3}>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <input
+                  type="text"
+                  defaultValue=""
+                  {...register("email", {
+                    required: "Enter your email address",
+                    pattern: {
+                      message: "Email format is not correct",
+                      value:
+                        /^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z0-9_-]+)$/,
+                    },
+                  })}
+                  id="emailID"
+                  name="email"
+                  className={styles.formInput}
+                  placeholder="Email Address"
                 />
-                {error && <div className={styles.error}>{error.message}</div>}
-              </>
-            )}
-          />
 
-          {/* TextField
+                {errors?.email && (
+                  <div className={styles.error}>{errors.email.message}</div>
+                )}
+
+                <input
+                  type="text"
+                  defaultValue=""
+                  {...register("firstName", {
+                    required: "Enter your first name",
+                  })}
+                  id="firstNameID"
+                  name="firstName"
+                  className={styles.formInput}
+                  placeholder="First name"
+                ></input>
+                {errors?.firstName && (
+                  <div className={styles.error}>{errors.firstName.message}</div>
+                )}
+
+                <Controller
+                  name="question1"
+                  control={control}
+                  defaultValue=""
+                  //  rules={{ required: "tdcdcrue" }}
+                  rules={{
+                    required: "This field is required",
+                  }}
+                  render={({
+                    field: { onChange, onBlur, value, name, ref },
+                    fieldState: { invalid, isTouched, isDirty, error },
+                    formState,
+                  }) => (
+                    <>
+                      <Select
+                        id="question1"
+                        instanceId="question1"
+                        options={optionsQuest1}
+                        required
+                        value={value}
+                        className="customSelect"
+                        classNamePrefix="customSelect"
+                        isMulti
+                        placeholder="How can we help your business? (multi select)"
+                        components={animatedComponents}
+                        isSearchable={false}
+                        onChange={(newValue) => onChange(newValue)}
+                      />
+                      {error && (
+                        <div className={styles.error}>{error.message}</div>
+                      )}
+                    </>
+                  )}
+                />
+
+                {/* TextField
     fullWidth
     inputProps={{
         maxLength: 5,
@@ -139,7 +161,7 @@ const FormBlock = ({ id }) => {
     required
 />; */}
 
-          {/* <Controller
+                {/* <Controller
     control={control}
     name="firstname"
     render={({ field }) => (
@@ -156,40 +178,47 @@ const FormBlock = ({ id }) => {
     )}
 />; */}
 
-          <textarea
-            type="text"
-            maxLength="3000"
-            defaultValue=""
-            {...register("custEnq")}
-            id="custEnqID"
-            name="custEnq"
-            className={styles.formInput}
-            placeholder="Your question (optional)"
-          ></textarea>
+                <textarea
+                  type="text"
+                  maxLength="3000"
+                  defaultValue=""
+                  {...register("custEnq")}
+                  id="custEnqID"
+                  name="custEnq"
+                  className={styles.formInput}
+                  placeholder="Your question (optional)"
+                ></textarea>
 
-          <div>
-            <Button className={styles.button} type="submit">
-              SUBMIT
-            </Button>
+                <div>
+                  <Button
+                    inView={inView}
+                    className={styles.button}
+                    type="submit"
+                  >
+                    SUBMIT
+                  </Button>
+                </div>
+              </form>
+            </div>
+
+            <div className={styles.cell4}>
+              <p className="sectionName">CONTACT US</p>
+              <h2>We will be happy to answer your questions</h2>
+              <p>
+                <br></br>It can take about 24-48 hours from us.
+              </p>
+              <p>
+                <br></br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
           </div>
-        </form>
-      </div>
-
-      <div className={styles.cell4}>
-        <p className="sectionName">CONTACT US</p>
-        <h2>We will be happy to answer your questions</h2>
-        <p>
-          <br></br>It can take about 24-48 hours from us.
-        </p>
-        <p>
-          <br></br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
-    </div>
+        )}
+      </Transition>
+    </>
   );
 };
 

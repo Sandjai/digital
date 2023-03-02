@@ -15,6 +15,18 @@
     padding-left: 40px
     max-width: 20rem
 
+// .images
+//     &.entered
+//         animation: showIcon 1s forwards
+//     &.entering
+//         animation: showIcon 1s forwards
+
+// .textWrapper
+//     &.entered
+//         animation: showText 1s forwards
+//     &.entering
+//         animation: showText 1s forwards
+
 .textWrapper::before
     content: ""
     position: absolute
@@ -38,3 +50,19 @@
 @media screen and (max-width: 767px)
     .root
         grid-template: auto auto / 1fr
+
+    //     &.entered
+//         animation: showIcon 1s forwards
+//     &.entering
+//         animation: showIcon 1s forwards
+
+// @keyframes showIcon
+//     0%
+//         opacity: 0
+//         width: 0px
+//         hight: 0px
+//     100%
+//         opacity: 1
+// @keyframes showText
+//     0%
+//         transform: translateX(-30vw)

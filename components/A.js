@@ -3,9 +3,16 @@ import React from "react";
 import styles from "../styles/A.module.sass";
 import classNames from "classnames";
 
-const A = ({ href, children, className }) => {
+const A = ({ href, children, className, isActive, onClick }) => {
   return (
-    <Link className={classNames(styles.link, className)} href={href}>
+    //shallow true if I don't want rerunning getStaticProps, getServerSideProps or getInitialProps
+    <Link
+      onClick={onClick}
+      className={classNames(styles.link, className, {
+        [styles.active]: isActive,
+      })}
+      href={href}
+    >
       {children}
     </Link>
   );

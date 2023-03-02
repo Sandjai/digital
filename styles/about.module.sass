@@ -34,10 +34,8 @@
 .imageWrap:before
     position: absolute
     content: url("../public/assets/images/ManIsWriting.jpg")
-    bottom: -95px
-    right: 50px
     max-width: 390px
-    min-height: 440px
+    max-height: 440px
     width: 100%
     hight: 100%
 
@@ -54,6 +52,12 @@ p.num
 
 p.title
     font-size: 11px
+.image
+    max-width: 570px
+    width: 100%
+    max-heigth: 600px
+    height: 100%
+
 @media screen and (min-width: 1200px)
     .root
         grid-template: repeat(3, auto) / 1.1fr .9fr
@@ -63,6 +67,10 @@ p.title
     .col3
         grid-row: 2/3
         grid-column: 2/-1
+    .imageWrap:before
+        right: 50px
+        bottom: -95px
+
 @media screen and (min-width: 961px) and (max-width: 1199px)
     .root
         grid-template: repeat(3, auto) / 1.1fr .9fr
@@ -80,6 +88,10 @@ p.title
         margin-top: 1rem
     .kpis
         margin-top: 2rem
+    .imageWrap:before
+        right: 50px
+        bottom: -95px
+
 @media screen and (min-width: 768px) and (max-width: 960px)
     .root
         grid-template: repeat(3, auto) / 1fr
@@ -89,6 +101,10 @@ p.title
         grid-row: 1/2
     .col3
         grid-row: 2/3
+    .imageWrap:before
+        right: 50px
+        bottom: -95px
+
 @media screen and (max-width: 767px)
     .root
         grid-template: repeat(3, auto) / 1fr
@@ -98,3 +114,6 @@ p.title
         grid-row: 1/2
     .col3
         grid-row: 2/3
+    .imageWrap:before
+        left: -20px
+        bottom: -120px

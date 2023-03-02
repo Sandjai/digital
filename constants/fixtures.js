@@ -1,8 +1,9 @@
 export const menuItems = [
-  { text: "HOME", link: "/" },
-  { text: "PORTFOLIO", link: "#portfolio" },
-  { text: "ABOUT", link: "#about" },
-  { text: "CONTACT", link: "#contact" },
+  { id: 1, text: "HOME", link: "/" },
+  { id: 2, text: "ABOUT", link: "#about" },
+  { id: 3, text: "PORTFOLIO", link: "#portfolio" },
+  { id: 4, text: "REVIEWS", link: "#reviews" },
+  { id: 5, text: "CONTACT", link: "#contact" },
 ];
 
 export const reviews = [

@@ -12,6 +12,18 @@ body
   background: $bgcolor
   width: 100%
 
+.entered
+  animation: showEl 1s forwards
+.entering
+  animation: showEl 1s forwards
+
+@keyframes showEl
+  0%
+    opacity: 0
+    transform: translateY(-30px)
+  100%
+    opacity: 1
+
 @font-face
   font-family: "PlusJakartaSans-Bold"
 

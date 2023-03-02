@@ -13,72 +13,114 @@ import Reviews from "../components/Reviews";
 import FormBlock from "../components/FormBlock";
 import Footer from "../components/Footer";
 import { useEffect, useRef } from "react";
-
-const Index = () => {
+import { Transition } from "react-transition-group";
+import { useInView, InView } from "react-intersection-observer";
+const Index = ({ reviews, isSsrMobile }) => {
   let pos = 0;
   let partners = useRef(null);
   let hero = useRef(null);
 
-  const onScroll = (e) => {
-    const value = scrollY;
-
-    let posNow = window.document.documentElement.scrollTop;
-
-    if (value < 2) {
-      if (posNow > pos) {
-        window.scrollBy(0, document.documentElement.clientHeight);
-      }
-    }
-
-    pos = posNow;
-  };
-
-  useEffect(() => {
-    document.addEventListener("scroll", onScroll);
-
-    return () => {
-      document.removeEventListener("scroll", onScroll);
-    };
-  }, []);
-
   return (
-    <MainContainer title="Digital Agency" keywords="digital, agency">
+    <MainContainer
+      isSsrMobile={isSsrMobile}
+      title="Digital Agency"
+      keywords="digital, agency"
+    >
       <SlideContainer>
-        <section ref={hero}>
-          <Hero onClick={(e) => partners.current.scrollIntoView()} />
-        </section>
+        <InView>
+          {({ inView, ref, entry }) => (
+            <section ref={ref}>
+              <Hero
+                inView={inView}
+                entry={entry}
+                onClick={(e) => partners.current.scrollIntoView()}
+              />
+            </section>
+          )}
+        </InView>
       </SlideContainer>
 
       <PageContent>
-        <section className={styles.partners} ref={partners} id="partners">
-          <Partners />
-        </section>
+        <div ref={partners}></div>
+        <InView>
+          {({ inView, ref, entry }) => (
+            <section ref={ref} className={styles.partners} id="partners">
+              <Partners inView={inView} entry={entry} />
+            </section>
+          )}
+        </InView>
 
         <section id="info">
-          <Info></Info>
-        </section>
-        <section id="infoDetails">
-          <InfoDetails />
+          <InView>
+            {({ inView, ref, entry }) => (
+              <section ref={ref} id="info">
+                <Info inView={inView} entry={entry}></Info>
+              </section>
+            )}
+          </InView>
         </section>
 
-        <section id="about">
-          <About />
-        </section>
-        <section id="projects">
-          <Projects />
-        </section>
-        <section id="portfolio">
-          <Portfolio />
-        </section>
-        <section id="reviews">
-          <Reviews />
-        </section>
-        <section className={styles.contact} id="contact">
-          <FormBlock />
-        </section>
+        <InView>
+          {({ inView, ref, entry }) => (
+            <section ref={ref} id="infoDetails">
+              <InfoDetails inView={inView} entry={entry} />
+            </section>
+          )}
+        </InView>
+
+        <InView>
+          {({ inView, ref, entry }) => (
+            <section ref={ref} id="about">
+              <About inView={inView} entry={entry} />
+            </section>
+          )}
+        </InView>
+
+        <InView>
+          {({ inView, ref, entry }) => (
+            <section ref={ref} className={styles.projects} id="projects">
+              <Projects inView={inView} entry={entry} />
+            </section>
+          )}
+        </InView>
+
+        <InView>
+          {({ inView, ref, entry }) => (
+            <section ref={ref} id="portfolio">
+              <Portfolio inView={inView} entry={entry} />
+            </section>
+          )}
+        </InView>
+
+        <InView>
+          {({ inView, ref, entry }) => (
+            <section ref={ref} id="reviews">
+              <Reviews reviews={reviews} inView={inView} entry={entry} />
+            </section>
+          )}
+        </InView>
+
+        <InView>
+          {({ inView, ref, entry }) => (
+            <section ref={ref} className={styles.contact} id="contact">
+              <FormBlock inView={inView} entry={entry} />
+            </section>
+          )}
+        </InView>
       </PageContent>
     </MainContainer>
   );
 };
 
 export default Index;
+
+export async function getStaticProps(context) {
+  const response = await fetch(
+    "https://jsonplaceholder.typicode.com/comments?_end=5"
+  );
+  const reviews = await response.json();
+
+  return {
+    props: { reviews }, // will be passed to the page component as props
+  };
+}

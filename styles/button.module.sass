@@ -1,27 +1,5 @@
 @import './variables'
-// .root
-//     position: relative
-//     button
-//         border: none
-//         outline: none
-//         background-color: transparent
-//         cursor: pointer
-//         h5
-//             font-size: 16px
-// .cta
-//     padding-left: 20px
-//     margin-top: 3rem
 
-// .cta::before
-//     content: ""
-//     position: absolute
-//     width: 60px
-//     height: 60px
-//     border-radius: 50%
-//     background: $darkgrey
-//     left: -7px
-//     top: -18px
-//     z-index: -1
 .root
     position: relative
     button
@@ -42,14 +20,102 @@
     width: 60px
     height: 60px
     border-radius: 50%
-    background: $darkgrey
     transition: width .5s, border-radius .5s
+    &__text
+        -webkit-user-select: none
+        -ms-user-select: none
+        user-select: none
     &_grey
-        background: $darkgrey
+        &.entered
+            animation: addColor_grey 1s forwards
+        &.entering
+            animation: addColor_grey 1s forwards
     &_orange
-        background: $orange
+        &.entered
+            animation: addColor 1s forwards
+        &.entering
+            animation: addColor 1s forwards
+
 .cta__text
     position: absolute
     left: 20px
     top: 30px
     transform: translateY(-50%)
+    opacity: 0
+    &.entered
+        animation: moveText .5s forwards 1s
+    &.entering
+        animation: moveText .5s forwards 1s
+// &.entered
+//     animation: showCircle .5s forwards
+// &.entering
+//     animation: showCircle .5s forwards
+// &.exiting
+//     animation: showCircle .5s reverse
+// &.exited
+    //height: 60px
+
+.animateCTA
+    position: absolute
+    right: -100vw
+    top: 0%
+    padding-left: 20px
+    width: 60px
+    height: 60px
+    border-radius: 50%
+
+    &.entered
+        animation: showCircle 1s forwards
+    &.entering
+        animation: showCircle 1s forwards
+
+.grey
+    background: $darkgrey
+
+.orange
+    background: $orange
+@keyframes showCircle
+    0%
+        left: 50vw
+        border-radius: 50vw
+        width: 50vw
+        opacity: 0
+
+    50%
+        left: 0px
+        width: 60px
+        border-radius: 50%
+        opacity: 1
+
+    80%
+        left: 120px
+        width: 80px
+        border-radius: 50%
+        opacity: 1
+    100%
+        left: 0px
+        width: 60px
+        border-radius: 50%
+        opacity: 1
+
+@keyframes addColor
+    0%
+        background: transparent
+    90%
+        background: transparent
+    100%
+        background: $orange
+
+@keyframes moveText
+    0%
+        opacity: 0
+
+    100%
+        opacity: 1
+@keyframes addColor_grey
+    0%
+        background: transparent
+    90%
+        background: transparent
+    100%
+        background: $darkgrey
