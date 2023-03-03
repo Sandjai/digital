@@ -62,7 +62,6 @@ const FormBlock = ({ id, inView, entry }) => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
     reset();
   };
   console.log(watch("email"));

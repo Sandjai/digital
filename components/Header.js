@@ -32,18 +32,6 @@ const Header = ({ keywords, title, isSsrMobile }) => {
     isMobile && setShownMenu(!menuShown);
   }
 
-  // useEffect(() => {
-  //   window.scrollY < 1200 && window.addEventListener("scroll", onScroll);
-  //   if (window.scrollY >= 1200) {
-  //     console.log("REMOVED 1");
-  //     window.removeEventListener("scroll", onScroll);
-  //   }
-
-  //   return () => {
-  //     console.log("removed");
-  //     window.removeEventListener("scroll", onScroll);
-  //   };
-  // }, []);
   const isMobile = useIsMobile();
   const dispatch = useDispatch();
   return (

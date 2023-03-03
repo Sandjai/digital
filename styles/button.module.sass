@@ -57,15 +57,17 @@
 
 .animateCTA
     position: absolute
-    right: -100vw
+    opacity: 0
+    //right: -100vw
     top: 0%
     padding-left: 20px
     width: 60px
     height: 60px
     border-radius: 50%
 
-    &.entered
-        animation: showCircle 1s forwards
+    // &.entered
+    //     animation: showCircle 1s forwards
+
     &.entering
         animation: showCircle 1s forwards
 
@@ -76,26 +78,27 @@
     background: $orange
 @keyframes showCircle
     0%
-        left: 50vw
-        border-radius: 50vw
-        width: 50vw
-        opacity: 0
+        //left: 50vw
+        // border-radius: 50vw
+        //width: 50vw
 
-    50%
-        left: 0px
-        width: 60px
-        border-radius: 50%
-        opacity: 1
+        transform: scale(5)
 
-    80%
-        left: 120px
-        width: 80px
-        border-radius: 50%
-        opacity: 1
+    // 50%
+    //     // left: 0px
+    //     // width: 60px
+    //     // border-radius: 50%
+    //     opacity: 1
+
+    // 80%
+    //     // left: 120px
+    //     // width: 80px
+    //     // border-radius: 50%
+    //     opacity: 1
     100%
-        left: 0px
-        width: 60px
-        border-radius: 50%
+        // left: 0px
+        // width: 60px
+        // border-radius: 50%
         opacity: 1
 
 @keyframes addColor

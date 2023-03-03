@@ -12,7 +12,7 @@ const Counter = ({ end, symb, visible, speed, per }) => {
     superfast: 1,
   };
   let timeout = Number(speedObj[speed]);
-  console.log(speedObj[speed]);
+
   useEffect(() => {
     if (visible) {
       if (currentNum < end) {

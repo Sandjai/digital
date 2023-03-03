@@ -10,14 +10,14 @@ import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import { setActiveItem } from "../store/header/actions";
 
-const Hero = ({ onClick, inView, entry }) => {
+const Hero = ({ onClick, inView, entry, isSsrMobile }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     entry?.isIntersecting && dispatch(setActiveItem("HOME"));
   }, [inView]);
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root__flex}>
       <Image
         fill
         style={{ objectFit: "cover", zIndex: -1 }}
@@ -25,49 +25,50 @@ const Hero = ({ onClick, inView, entry }) => {
         alt="Man is writing"
         placeholder="blur"
       ></Image>
-      <div className={styles.heroTxt}>
-        <h1>
-          Business Solution <br></br>by Digital<br></br>
-        </h1>
-      </div>
-      <div className={styles.heroTxt_stroke}>
-        <h2>
-          <span className={styles.strokeTxt}> Agency</span>
-        </h2>
-      </div>
-      <div className={styles.allocated}>
-        <div className={styles.textWrapper}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna.
-          </p>
+
+      <div className={styles.root__grid}>
+        <div className={styles.heroTxt}>
+          <h1>
+            Business Solution <br></br>by Digital<br></br>
+          </h1>
         </div>
-      </div>
-
-      <Transition in={inView} timeout={2000} mountOnEnter unmountOnExit>
-        {(state) => (
-          <div className={classNames(styles[state], styles.imageBlock)}>
-            <Image
-              width="470px"
-              height="230px"
-              src={conversationImg}
-              alt="People are talking in the office"
-              priority={true}
-              placeholder="blur"
-            ></Image>
+        <div className={styles.heroTxt_stroke}>
+          <h2>
+            <span className={styles.strokeTxt}> Agency</span>
+          </h2>
+        </div>
+        <div className={styles.allocated}>
+          <div className={styles.textWrapper}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
           </div>
-        )}
-      </Transition>
+        </div>
 
-      <div className={styles.ctaWrapper}>
-        <Button inView={inView} className={styles.button} type="secondary">
-          GET IN TOUCH
-        </Button>
-      </div>
+        <Transition in={inView} timeout={2000} mountOnEnter unmountOnExit>
+          {(state) => (
+            <div className={classNames(styles[state], styles.imageBlock)}>
+              <Image
+                src={conversationImg}
+                alt="People are talking in the office"
+                priority={true}
+                placeholder="blur"
+              ></Image>
+            </div>
+          )}
+        </Transition>
 
-      <div className={styles.ctaWrapper2} onClick={onClick}>
-        <div className={styles.cta2}>
-          <p>SCROLL</p>
+        <div className={styles.ctaWrapper}>
+          <Button inView={inView} className={styles.button} type="secondary">
+            GET IN TOUCH
+          </Button>
+        </div>
+
+        <div className={styles.ctaWrapper2} onClick={onClick}>
+          <div className={styles.cta2}>
+            <p>SCROLL</p>
+          </div>
         </div>
       </div>
     </div>

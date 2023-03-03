@@ -32,6 +32,7 @@ const Index = ({ reviews, isSsrMobile }) => {
             <section ref={ref}>
               <Hero
                 inView={inView}
+                isSsrMobile={isSsrMobile}
                 entry={entry}
                 onClick={(e) => partners.current.scrollIntoView()}
               />

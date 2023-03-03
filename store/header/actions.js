@@ -3,7 +3,6 @@ export const HEADER_ACTIONS = {
 };
 
 export const setActiveItem = (item) => {
-  console.log("dispatch:", item);
   return {
     type: HEADER_ACTIONS.setActiveItem,
     payload: item,
