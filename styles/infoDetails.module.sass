@@ -7,7 +7,6 @@
     figcaption
         font-family: Poppins-Bold, sans-serif
         color: $white
-        font-size: 30px
 
 .title
     color: $white
@@ -15,9 +14,12 @@
     line-height: 40.5px
     margin-top: 20px
 @media screen and (min-width: 960px)
+
     .root
         grid-template-rows: minmax(500px, 1fr)
         grid-template-columns: 1fr 1fr 1fr
+        figcaption
+            font-size: 30px
 
     .col1
         align-self: start
@@ -29,8 +31,11 @@
         width: 350px
         height: 380px
 @media screen and (min-width: 768px) and (max-width: 960px)
+
     .root
         grid-template: repeat(3, 1fr) / 1fr
+        figcaption
+            font-size: 25px
 
     .col1
         justify-self: start
@@ -46,8 +51,11 @@
         height: auto
 
 @media screen and (max-width: 767px)
+
     .root
         grid-template: repeat(3, 1fr) / 1fr
+        figcaption
+            font-size: 18px
     .col1
         justify-self: start
 

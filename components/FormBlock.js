@@ -72,7 +72,7 @@ const FormBlock = ({ id, inView, entry }) => {
         {(state) => (
           <div id={id} className={classNames(state, styles.root)}>
             <div className={styles.cell1}>
-              <h1>Let’s Make Something Great Together!</h1>
+              <h2>Let’s Make Something Great Together!</h2>
             </div>
             <div className={styles.cell2}></div>
 

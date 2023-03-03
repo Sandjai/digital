@@ -45,12 +45,11 @@
 .kpis
     display: grid
 
-    grid-template: 1fr / repeat(3, 1fr)
     align-items: start
     justify-items: center
 
 p.num
-    font-size: 35px!important
+    font-size: 35px
     color: $white
 
 p.title
@@ -73,6 +72,8 @@ p.title
     .imageWrap:before
         right: 50px
         bottom: -95px
+    .kpis
+        grid-template: 1fr / repeat(3, 1fr)
 
 @media screen and (min-width: 961px) and (max-width: 1199px)
     .root
@@ -90,7 +91,7 @@ p.title
         grid-column: 1/2
         margin-top: 1rem
     .kpis
-        margin-top: 2rem
+        grid-template: 1fr / repeat(3, 1fr)
     .imageWrap:before
         right: 50px
         bottom: -95px
@@ -104,7 +105,8 @@ p.title
         grid-row: 1/2
     .col3
         grid-row: 2/3
-
+    .kpis
+        grid-template: 1fr / 1fr
     .image_abs
         bottom: -5vw
         right: 15vw
@@ -129,9 +131,13 @@ p.title
         grid-row: 1/2
     .col3
         grid-row: 2/3
-
+    .kpis
+        grid-template: 1fr / 1fr
+        row-gap: 2rem
     .image_abs
         bottom: -40vw
         right: -5vw
         width: 40vw
         hight: auto
+    p.num
+        font-size: 3rem
