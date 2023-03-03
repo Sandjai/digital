@@ -28,6 +28,11 @@ const About = ({ id, inView, entry }) => {
             <div className={classNames(state, styles.col1)}>
               <div className={styles.imageWrap}>
                 <Image
+                  className={styles.image_abs}
+                  src={ManIsWriting}
+                  alt="Man is writing"
+                ></Image>
+                <Image
                   className={styles.image}
                   src={PeopleSmiling}
                   alt="People are smiling"

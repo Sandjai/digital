@@ -68,16 +68,11 @@
     &::before
         content: ""
         position: absolute
-        width: 307px
-        height: 307px
         border-radius: 50%
         background: $orange
         left: -85px
         top: -35px
         z-index: -1
-    & img
-        max-width: 470px
-        max-height: 230px
 
 .button
     margin-top: 3rem
@@ -107,10 +102,17 @@
             font-size: 90px
     .strokeTxt
         font-size: 130px
+    .imageBlock
+        & img
+            max-width: 470px
+            max-height: 230px
+        &::before
+            width: 307px
+            height: 307px
 
 @media screen and (min-width: 961px)
     .root__grid
-        grid-template: repeat(4, auto)/repeat(8, 1fr)
+        grid-template: 100px repeat(4, auto)/repeat(8, 1fr)
     .allocated
         grid-row: 3/4
         grid-column: 3/8
@@ -132,13 +134,19 @@
         grid-row: 4/5
         grid-column: 2/5
         margin-top: 2rem
+        &::before
+            width: 300px
+            height: 300px
+        & img
+            max-width: 470px
+            max-height: 230px
     .strokeTxt
         font-size: 110px
         -webkit-text-stroke: 3px $white
 
 @media screen and (min-width: 768px) and (max-width: 960px)
     .root__grid
-        grid-template: minmax(100px, auto) repeat(4, auto)/repeat(4, 1fr)
+        grid-template: repeat(5, auto)/repeat(4, 1fr)
     .allocated
         margin-top: 4rem
         grid-row: 5/6
@@ -147,9 +155,9 @@
         p
             width: 100%
     .ctaWrapper
-        // grid-row: 5/6
-        // grid-column: 7/9
-        display: none
+        grid-row: 6/7
+        grid-column: 4/5
+        // display: none
     .heroTxt
         grid-row: 2/3
         grid-column: 1/-1
@@ -163,13 +171,19 @@
         margin-top: 2rem
         grid-row: 4/5
         grid-column: 2/5
+        & img
+            max-width: 470px
+            max-height: 230px
+        &::before
+            width: 270px
+            height: 270px
     .strokeTxt
         font-size: 80px
         -webkit-text-stroke: 3px $white
         margin-right: 20px
 @media screen and (max-width: 767px)
     .root__grid
-        grid-template: minmax(100px, auto) repeat(6, auto)/repeat(2, 1fr)
+        grid-template: minmax(100px, auto) repeat(6, auto) / repeat(2, 1fr)
         row-gap: .5rem
     .heroTxt
         grid-row: 2/3
@@ -192,6 +206,13 @@
         margin-top: 2rem
         grid-row: 4/5
         grid-column: 1/-1
+        & img
+            width: 80vw
+            height: auto
+        &::before
+            width: 255px
+            height: 255px
+
     .ctaWrapper
         display: none
         // grid-row: 5/6
@@ -202,3 +223,13 @@
         font-size: 60px
         -webkit-text-stroke: 2px $white
         margin-right: 20px
+    .textWrapper
+        display: none
+
+@media screen and (max-width: 340px)
+    .textWrapper
+        display: none
+    .imageBlock
+        &::before
+            width: 167px
+            height: 167px

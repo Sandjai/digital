@@ -31,40 +31,40 @@ const Partners = ({ inView, entry }) => {
               <Image
                 className={classNames(styles.images, state)}
                 src={partner1}
-                width="72px"
-                height="50px"
+                max-width="72px"
+                max-height="50px"
                 alt="Partner of the company"
               ></Image>
 
               <Image
                 src={partner2}
                 className={classNames(styles.images, state)}
-                width="97px"
-                height="50px"
+                max-width="97px"
+                max-height="50px"
                 alt="Partner of the company"
               ></Image>
 
               <Image
                 src={partner3}
                 className={classNames(styles.images, state)}
-                width="61px"
-                height="48px"
+                max-width="61px"
+                max-height="48px"
                 alt="Partner of the company"
               ></Image>
 
               <Image
                 src={partner4}
                 className={classNames(styles.images, state)}
-                width="128px"
-                height="50px"
+                max-width="128px"
+                max-height="50px"
                 alt="Partner of the company"
               ></Image>
 
               <Image
                 src={partner5}
                 className={classNames(styles.images, state)}
-                width="108px"
-                height="60px"
+                max-width="108px"
+                max-height="60px"
                 alt="Partner of the company"
               ></Image>
             </div>

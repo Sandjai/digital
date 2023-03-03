@@ -32,12 +32,7 @@ const Reviews = ({ reviews, inView, entry }) => {
           <div className={classNames(state, styles.root)}>
             <div className={styles.col1}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src={picture1}
-                  alt="Woman is Writing"
-                  width="370px"
-                  height="430px"
-                ></Image>
+                <Image src={picture1} alt="Woman is Writing"></Image>
               </div>
             </div>
             <div className={styles.col2}>

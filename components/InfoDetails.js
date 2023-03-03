@@ -22,8 +22,6 @@ const InfoDetails = ({ inView }) => {
                 className={styles.images}
                 src={DigitalAgency}
                 alt="Digital Agency"
-                width="350px"
-                height="380px"
                 placeholder="blur"
               ></Image>
               <figcaption className={styles.title}>Digital Agency</figcaption>
@@ -33,8 +31,6 @@ const InfoDetails = ({ inView }) => {
                 className={styles.images}
                 src={WebDevelopment}
                 alt="Web Development"
-                width="350px"
-                height="380px"
                 placeholder="blur"
               ></Image>
               <figcaption className={styles.title}>Web Development</figcaption>
@@ -44,8 +40,6 @@ const InfoDetails = ({ inView }) => {
                 className={styles.images}
                 src={CustomSolutions}
                 alt="Custom Solutions"
-                width="350px"
-                height="380px"
                 placeholder="blur"
               ></Image>
               <figcaption className={styles.title}>Custom Solutions</figcaption>

@@ -31,13 +31,16 @@
 .imageWrap
     position: relative
 
-.imageWrap:before
+// .imageWrap:before
+//     position: absolute
+//     content: url("../public/assets/images/ManIsWriting.jpg")
+//     max-width: 390px
+//     max-height: 440px
+//     width: 100%
+//     hight: 100%
+
+.image_abs
     position: absolute
-    content: url("../public/assets/images/ManIsWriting.jpg")
-    max-width: 390px
-    max-height: 440px
-    width: 100%
-    hight: 100%
 
 .kpis
     display: grid
@@ -101,11 +104,23 @@ p.title
         grid-row: 1/2
     .col3
         grid-row: 2/3
-    .imageWrap:before
-        right: 50px
-        bottom: -95px
+
+    .image_abs
+        bottom: -5vw
+        right: 15vw
+        width: 40vw
+        hight: auto
 
 @media screen and (max-width: 767px)
+    .imageWrap
+        & img
+            width: 70vw
+            height: auto
+        &:before
+            left: -20px
+            bottom: -120px
+            width: 10vw!important
+            hight: auto!important
     .root
         grid-template: repeat(3, auto) / 1fr
     .col1
@@ -114,6 +129,9 @@ p.title
         grid-row: 1/2
     .col3
         grid-row: 2/3
-    .imageWrap:before
-        left: -20px
-        bottom: -120px
+
+    .image_abs
+        bottom: -40vw
+        right: -5vw
+        width: 40vw
+        hight: auto
