@@ -41,7 +41,7 @@
     align-items: center
     justify-content: space-between
     flex-wrap: wrap
-    flex-basis: 70px
+
 @media screen and (min-width: 960px)
     .root
         grid-template-columns: 1fr minmax(150px, 2fr)
@@ -52,6 +52,10 @@
 @media screen and (max-width: 767px)
     .root
         grid-template: auto auto / 1fr
+    .icons
+        img
+            width: 30px
+            height: auto
 
     //     &.entered
 //         animation: showIcon 1s forwards

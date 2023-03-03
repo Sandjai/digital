@@ -65,11 +65,11 @@ const Hero = ({ onClick, inView, entry, isSsrMobile }) => {
           </Button>
         </div>
 
-        <div className={styles.ctaWrapper2} onClick={onClick}>
+        {/* <div className={styles.ctaWrapper2} onClick={onClick}>
           <div className={styles.cta2}>
             <p>SCROLL</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
